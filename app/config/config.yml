@@ -90,4 +90,13 @@ old_sound_rabbit_mq:
             lazy:     false
             connection_timeout: 3
             read_write_timeout: 3
-
+    producers:
+        random:
+            connection:       default
+            exchange_options: {name: 'test', type: direct}
+    consumers:
+        random:
+            connection:       default
+            exchange_options: {name: 'test', type: direct}
+            queue_options:    {name: 'random'}
+            callback:         random_queue_service
